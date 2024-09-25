@@ -136,3 +136,5 @@ Dans ce modèle :
 ### Exercice
 
 Utiliser diagram.net pour refaire l'exemple de la partie 3.
+
+Une fois votre diagramme fini, vous pouvez passer à [la suite](TP_MCD.md).
