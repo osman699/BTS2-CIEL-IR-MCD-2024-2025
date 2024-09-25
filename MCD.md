@@ -24,7 +24,7 @@ Dans notre modèle, on représente les attributs en dessous du nom dans une part
 
 Les relations décrivent les liens entre les entités. Par exemple : un Champion "possède" une ou plusieurs Compétences.
 
-![image](https://github.com/user-attachments/assets/0a2ce6a5-5e04-4f59-b00c-271f95d40d8d)
+![image](https://github.com/user-attachments/assets/518b70cb-8c24-4807-80a5-cea19fb852b3)
 
 ### 1.4 Cardinalités
 
