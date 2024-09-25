@@ -33,18 +33,39 @@ Les cardinalités indiquent le nombre minimum et maximum d'occurrences d'une ent
 - (0,1) : Zéro ou un.
   - L'entité peut ne pas participer à la relation, ou y participer une seule fois.
   - Exemple : Un employé peut avoir zéro ou un bureau attitré.
+  - Représentation :
+    
+    ![image](https://github.com/user-attachments/assets/13f7d01f-423e-4ae7-b788-60b82f6862c6)
+
 - (1,1) : Exactement un.
   - L'entité doit participer à la relation exactement une fois.
   - Exemple : Une personne a exactement une date de naissance.
+  - Représentation :
+
+    ![image](https://github.com/user-attachments/assets/ad18f312-6d0b-42e7-a05d-cb961b914a77)
+
 - (0,n) : Zéro ou plusieurs.
   - L'entité peut ne pas participer à la relation, ou y participer plusieurs fois.
   - Exemple : Un client peut n'avoir passé aucune commande, ou en avoir passé plusieurs.
+  - Représentation :
+
+  ![image](https://github.com/user-attachments/assets/085b73dc-b582-444d-8ec7-b3a26f60a3a1)
+    
 - (1,n) : Un ou plusieurs
   - L'entité doit participer à la relation au moins une fois, et peut y participer plusieurs fois.
   - Exemple : Un livre doit avoir au moins un auteur, et peut en avoir plusieurs.
+  - Représentation :
+
+![image](https://github.com/user-attachments/assets/eda30424-199b-4153-a4b9-4bb3f2e79814)
+ 
 - (i,j) : Entre i et j (où i < j)
   - L'entité doit participer à la relation au minimum i fois et au maximum j fois.
   - Exemple : Une équipe de football doit avoir entre 11 et 23 joueurs (11,23).
+  - Il n'y a pas de représentation symbolique pour ce cas.
+ 
+### 1.5 Liste des symboles de cardinalité
+
+![crow-s-foot-notation](https://github.com/user-attachments/assets/0676bdf9-1165-47e5-b113-09feda617b90)
 
 ## 2. Étapes pour construire un MCD
 
