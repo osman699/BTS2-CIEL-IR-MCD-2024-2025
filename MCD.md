@@ -119,17 +119,7 @@ Dans ce modèle :
 - Chaque champion doit avoir au moins une abilité (cardinalité minimale 1) et peut en avoir plusieurs (cardinalité maximale n).
 - Chaque abilité appartient exactement à un champion (cardinalité 1,1).
 
-## 4. Outils pour créer un MCD
-
-Il existe plusieurs outils pour dessiner un MCD :
-- Logiciels spécialisés : Lucidchart, Draw.io, MySQL Workbench
-- Outils de dessin génériques : Microsoft Visio, Adobe Illustrator
-
-## Conclusion
-
-La création d'un MCD est une étape cruciale dans la conception d'une base de données. Elle permet de clarifier la structure des données et leurs interactions avant de passer à l'implémentation technique. Avec de la pratique, vous deviendrez plus à l'aise pour créer des MCD efficaces et précis.
-
-## L'outil draw.io / diagram.net
+## 4. L'outil draw.io / diagram.net
 
 1. Rendez-vous sur https://app.diagrams.net/#
 2. Sélectionnez GutHub
@@ -143,8 +133,6 @@ La création d'un MCD est une étape cruciale dans la conception d'une base de d
 6. Si ce n'est pas fait, logger vous sur Github puis cliquez sur le bouton `Installer`.
 7. Sélectionnez le dossier `<votre_compte>/BTS2-CIEL-IR-MCD-2024-2025` puis `OK`.
 
-## Les entités
+### Exercice
 
-- Chaque rectangle représente une entité dans votre modèle.
-- Une entité est contitué de plusieurs éléments :
-  - Dans la partie supérieure
+Utiliser diagram.net pour refaire l'exemple de la partie 3.
