@@ -49,14 +49,14 @@ Les cardinalités indiquent le nombre minimum et maximum d'occurrences d'une ent
   - Exemple : Un client peut n'avoir passé aucune commande, ou en avoir passé plusieurs.
   - Représentation :
 
-  ![image](https://github.com/user-attachments/assets/085b73dc-b582-444d-8ec7-b3a26f60a3a1)
+    ![image](https://github.com/user-attachments/assets/085b73dc-b582-444d-8ec7-b3a26f60a3a1)
     
 - (1,n) : Un ou plusieurs
   - L'entité doit participer à la relation au moins une fois, et peut y participer plusieurs fois.
   - Exemple : Un livre doit avoir au moins un auteur, et peut en avoir plusieurs.
   - Représentation :
 
-![image](https://github.com/user-attachments/assets/eda30424-199b-4153-a4b9-4bb3f2e79814)
+    ![image](https://github.com/user-attachments/assets/eda30424-199b-4153-a4b9-4bb3f2e79814)
  
 - (i,j) : Entre i et j (où i < j)
   - L'entité doit participer à la relation au minimum i fois et au maximum j fois.
