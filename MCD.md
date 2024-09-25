@@ -113,29 +113,11 @@ Cardinalités :
 
 Représentation simplifiée :
 
-```
-Champion (1,n) ----possède---- (1,1) Abilité
-```
+![image](https://github.com/user-attachments/assets/27b4c2bb-5fd2-4bb7-bb6f-04a89bae20e2)
 
 Dans ce modèle :
 - Chaque champion doit avoir au moins une abilité (cardinalité minimale 1) et peut en avoir plusieurs (cardinalité maximale n).
 - Chaque abilité appartient exactement à un champion (cardinalité 1,1).
-
-```mermaid
-    CHAMPION ||--|{ ABILITE : possède
-    CHAMPION {
-        int ID_Champion
-        string Nom
-        string Titre
-        string Role
-    }
-    ABILITE {
-        int ID_Abilite
-        string Nom
-        string Description
-        string Type
-    }
-```
 
 ## 4. Outils pour créer un MCD
 
