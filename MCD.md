@@ -18,13 +18,13 @@ On représente une entité par un rectangle avec dans la partie supérieur son n
 Les attributs sont les caractéristiques qui décrivent une entité. Par exemple, pour l'entité Champion : Nom, Description,...
 Dans notre modèle, on représente les attributs en dessous du nom dans une partie séparée.
 
-![image](https://github.com/user-attachments/assets/1677222b-8997-4e07-bec1-7ccd19a93e6a)
+![image](https://github.com/user-attachments/assets/82f3b32a-0be4-4554-9d11-67d4007a4174)
 
 ### 1.3 Relations
 
 Les relations décrivent les liens entre les entités. Par exemple : un Champion "possède" une ou plusieurs Compétences.
 
-![image](https://github.com/user-attachments/assets/518b70cb-8c24-4807-80a5-cea19fb852b3)
+![image](https://github.com/user-attachments/assets/e74ea6a9-b130-4ace-9150-cf68145e983f)
 
 ### 1.4 Cardinalités
 
@@ -97,15 +97,15 @@ Les cardinalités indiquent le nombre minimum et maximum d'occurrences d'une ent
 
 ## 3. Exemple pratique
 
-Construisons un MCD simple pour un système de gestion de champions et de leurs abilités :
+Construisons un MCD simple pour un système de gestion de champions et de leurs compétences :
 
 Entités :
-- Champion (ID_Champion, Nom, Titre, Role)
-- Abilité (ID_Abilité, Nom, Description, Type)
+- Champion (ID_Champion, Nom)
+- Compétence (ID_Compétence, Nom)
 
 Relation :
 - Un Champion "possède" une ou plusieurs Abilités
-- Une Abilité "appartient à" un seul Champion
+- Une Compétence "appartient à" un seul Champion
 
 Cardinalités :
 - Champion vers Abilité : (1,n) - Un champion possède au moins une abilité, et peut en avoir plusieurs.
