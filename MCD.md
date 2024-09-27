@@ -139,8 +139,6 @@ Dans ce modèle :
 
 Utiliser diagram.net pour refaire l'exemple de la partie 3.
 
-Une fois votre diagramme fini, vous pouvez passer à [la suite](TP_MCD.md).
-
 ## Partie 2 - MCD étendu
 
 Le Modèle Conceptuel de Données (MCD) Étendu est une version plus détaillée du MCD classique. Il inclut non seulement les entités, les relations et les cardinalités, mais aussi les types de données pour chaque attribut. Cette approche permet une modélisation plus précise et facilite la transition vers le modèle logique et physique de la base de données.
@@ -208,3 +206,5 @@ Dans cet exemple :
 4. Communication améliorée : Les développeurs et les administrateurs de bases de données ont une vision plus claire des exigences en matière de données.
 
 En utilisant un MCD étendu, vous créez une base solide pour la conception de votre base de données, en combinant la clarté conceptuelle du MCD classique avec la précision technique nécessaire pour l'implémentation.
+
+Une fois votre diagramme fini, vous pouvez passer à [la suite](TP_MCD.md).
