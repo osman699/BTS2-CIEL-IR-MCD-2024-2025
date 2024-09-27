@@ -1,32 +1,34 @@
 # Comment construire un Modèle Conceptuel de Données (MCD)
 
-## Introduction
+## Partie 1 - MCD simplifié
+
+### Introduction
 
 Le Modèle Conceptuel de Données (MCD) est un outil fondamental dans la conception de bases de données. Il permet de représenter de manière graphique et structurée les données d'un système d'information et leurs relations.
 
-## 1. Comprendre les concepts de base
+### 1. Comprendre les concepts de base
 
-### 1.1 Entités
+#### 1.1 Entités
 
 Une entité représente un objet ou un concept du monde réel. Par exemple : Champion, Compétence,...
 On représente une entité par un rectangle avec dans la partie supérieur son nom.
 
 ![image](https://github.com/user-attachments/assets/81145d06-ed21-4e26-9283-d3fba26d2855)
 
-### 1.2 Attributs
+#### 1.2 Attributs
 
 Les attributs sont les caractéristiques qui décrivent une entité. Par exemple, pour l'entité Champion : Nom, Description,...
 Dans notre modèle, on représente les attributs en dessous du nom dans une partie séparée.
 
 ![image](https://github.com/user-attachments/assets/82f3b32a-0be4-4554-9d11-67d4007a4174)
 
-### 1.3 Relations
+#### 1.3 Relations
 
 Les relations décrivent les liens entre les entités. Par exemple : un Champion "possède" une ou plusieurs Compétences.
 
 ![image](https://github.com/user-attachments/assets/e74ea6a9-b130-4ace-9150-cf68145e983f)
 
-### 1.4 Cardinalités
+#### 1.4 Cardinalités
 
 Les cardinalités indiquent le nombre minimum et maximum d'occurrences d'une entité dans une relation. Voici la liste des cardinalités possibles et leur signification :
 
@@ -63,39 +65,39 @@ Les cardinalités indiquent le nombre minimum et maximum d'occurrences d'une ent
   - Exemple : Une équipe de football doit avoir entre 11 et 23 joueurs (11,23).
   - Il n'y a pas de représentation symbolique pour ce cas.
  
-### 1.5 Liste des symboles de cardinalité
+#### 1.5 Liste des symboles de cardinalité
 
 ![crow-s-foot-notation](https://github.com/user-attachments/assets/0676bdf9-1165-47e5-b113-09feda617b90)
 
-## 2. Étapes pour construire un MCD
+### 2. Étapes pour construire un MCD
 
-### 2.1 Identifier les entités
+#### 2.1 Identifier les entités
 
 - Listez tous les objets ou concepts importants du système.
 - Chaque entité doit avoir un nom unique et être au singulier.
 
-### 2.2 Définir les attributs
+#### 2.2 Définir les attributs
 
 - Pour chaque entité, identifiez ses caractéristiques.
 - Choisissez un identifiant unique pour chaque entité appelé clé primaire ou primary key (PK) en anglais. Elle sera en gras souligné dans l'entity.
 
-### 2.3 Établir les relations
+#### 2.3 Établir les relations
 
 - Identifiez les liens entre les entités.
 - Nommez ces relations avec des verbes à l'infinitif.
 
-### 2.4 Déterminer les cardinalités
+#### 2.4 Déterminer les cardinalités
 
 - Pour chaque relation, définissez les cardinalités minimales et maximales.
 - Utilisez la notation (0,1), (1,1), (0,n), ou (1,n).
 
-### 2.5 Affiner le modèle
+#### 2.5 Affiner le modèle
 
 - Vérifiez la cohérence globale du modèle.
 - Éliminez les redondances éventuelles.
 - Assurez-vous que chaque entité a un identifiant unique.
 
-## 3. Exemple pratique
+### 3. Exemple pratique
 
 Construisons un MCD simple pour un système de gestion de champions et de leurs compétences :
 
@@ -119,7 +121,7 @@ Dans ce modèle :
 - Chaque champion doit avoir au moins une abilité (cardinalité minimale 1) et peut en avoir plusieurs (cardinalité maximale n).
 - Chaque abilité appartient exactement à un champion (cardinalité 1,1).
 
-## 4. L'outil draw.io / diagram.net
+### 4. L'outil draw.io / diagram.net
 
 1. Rendez-vous sur https://app.diagrams.net/#
 2. Sélectionnez GutHub
@@ -133,8 +135,76 @@ Dans ce modèle :
 6. Si ce n'est pas fait, logger vous sur Github puis cliquez sur le bouton `Installer`.
 7. Sélectionnez le dossier `<votre_compte>/BTS2-CIEL-IR-MCD-2024-2025` puis `OK`.
 
-### Exercice
+### 5. Exercice
 
 Utiliser diagram.net pour refaire l'exemple de la partie 3.
 
 Une fois votre diagramme fini, vous pouvez passer à [la suite](TP_MCD.md).
+
+## Partie 2 - MCD étendu
+
+Le Modèle Conceptuel de Données (MCD) Étendu est une version plus détaillée du MCD classique. Il inclut non seulement les entités, les relations et les cardinalités, mais aussi les types de données pour chaque attribut. Cette approche permet une modélisation plus précise et facilite la transition vers le modèle logique et physique de la base de données.
+
+### 1. Concepts du MCD Étendu
+
+#### 1.1 Entités avec Types
+
+Dans un MCD étendu, chaque entité est représentée par un rectangle divisé en trois parties :
+1. Le nom de l'entité
+2. La clé primaire
+3. Les noms et les types de données correspondants
+
+#### 1.2 Types de Données Courants
+
+Voici une liste des types de données fréquemment utilisés dans un MCD étendu :
+
+- INT : Nombre entier
+- FLOAT : Nombre à virgule flottante
+- DECIMAL(p,s) : Nombre décimal avec p chiffres au total et s chiffres après la virgule
+- VARCHAR(n) : Chaîne de caractères de longueur variable (max n)
+- CHAR(n) : Chaîne de caractères de longueur fixe (n)
+- TEXT : Texte de longueur variable (pour les longs textes)
+- DATE : Date (AAAA-MM-JJ)
+- TIME : Heure (HH:MM:SS)
+- DATETIME : Date et heure
+- BOOLEAN : Valeur booléenne (vrai/faux)
+
+### 1.3 Relations et Cardinalités
+
+Les relations et cardinalités restent identiques au MCD classique, mais avec l'ajout des types pour chaque attribut.
+
+## 2. Étapes pour Construire un MCD Étendu
+
+### 2.1 Identifier les Entités et leurs Attributs
+
+- Listez les entités importantes du système.
+- Pour chaque entité, identifiez ses attributs.
+
+### 2.2 Définir les Types de Données
+
+- Pour chaque attribut, déterminez le type de données approprié.
+- Choisissez des types qui reflètent précisément la nature et la taille des données.
+
+### 2.3 Établir les Relations et Cardinalités
+
+- Identifiez les liens entre les entités.
+- Définissez les cardinalités pour chaque relation.
+
+### 2.4 Affiner le Modèle
+
+- Vérifiez la cohérence des types de données.
+- Assurez-vous que les clés primaires sont correctement typées (généralement INT pour les ID auto-incrémentés).
+
+Dans cet exemple :
+- Les entités incluent maintenant les types pour chaque attribut.
+- La relation "possède" et les cardinalités restent les mêmes que dans le MCD classique.
+- Les types choisis reflètent la nature des données (par exemple, TEXT pour les descriptions longues, INT pour les identifiants et le coût en mana).
+
+## 4. Avantages du MCD Étendu
+
+1. Précision accrue : Les types de données fournissent plus d'informations sur la structure de la base de données.
+2. Facilite la transition : Le passage du modèle conceptuel au modèle logique est simplifié.
+3. Détection précoce des problèmes : Les incohérences de types peuvent être identifiées plus tôt dans le processus de conception.
+4. Communication améliorée : Les développeurs et les administrateurs de bases de données ont une vision plus claire des exigences en matière de données.
+
+En utilisant un MCD étendu, vous créez une base solide pour la conception de votre base de données, en combinant la clarté conceptuelle du MCD classique avec la précision technique nécessaire pour l'implémentation.
