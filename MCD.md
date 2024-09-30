@@ -166,6 +166,7 @@ Voici une liste des types de données fréquemment utilisés dans un MCD étendu
 - TIME : Heure (HH:MM:SS)
 - DATETIME : Date et heure
 - BOOLEAN : Valeur booléenne (vrai/faux)
+- BASE64 : Fichier comme les images, il s'agit d'un type avancé
 
 ### 1.3 Relations et Cardinalités
 
