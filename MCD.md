@@ -110,16 +110,16 @@ Relation :
 - Une Compétence "appartient à" un seul Champion
 
 Cardinalités :
-- Champion vers Abilité : (1,n) - Un champion possède au moins une abilité, et peut en avoir plusieurs.
-- Abilité vers Champion : (1,1) - Une abilité appartient à un et un seul champion.
+- Champion vers Compétence : (1,n) - Un champion possède au moins une compétence et peut en avoir plusieurs.
+- Compétence vers Champion : (1,1) - Une compétence appartient à un et un seul champion.
 
 Représentation simplifiée :
 
 ![image](https://github.com/user-attachments/assets/27b4c2bb-5fd2-4bb7-bb6f-04a89bae20e2)
 
 Dans ce modèle :
-- Chaque champion doit avoir au moins une abilité (cardinalité minimale 1) et peut en avoir plusieurs (cardinalité maximale n).
-- Chaque abilité appartient exactement à un champion (cardinalité 1,1).
+- Chaque champion doit avoir au moins une compétence (cardinalité minimale 1) et peut en avoir plusieurs (cardinalité maximale n).
+- Chaque compétence appartient exactement à un champion (cardinalité 1,1).
 
 ### 4. L'outil draw.io / diagram.net
 
