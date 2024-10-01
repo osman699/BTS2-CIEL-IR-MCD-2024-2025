@@ -26,6 +26,65 @@ Dans votre dossier `BTS2-CIEL-IR-MCD-2024-2025/League_of_Branly` se trouve un en
 
 Après actualisation du site internet, vous devriez voir s'affichez le thème League of Branly. Inspecter la page pour vérifier qu'il n'y a pas d'erreur 404 au chargement des éléments. En cas d'erreurs, corrigez les.
 
-## 3. Création des entités en utilisant `artisan`
+![image](https://github.com/user-attachments/assets/e81b1369-840e-4960-a588-61a3c45e4e85)
 
+## 3. Visualisation de la base de données
 
+Ouvrez votre dossier `League of Branly` avec Visual Studio Code.
+
+Dans le dossier `database` vous remarquerez un fichier `database.sqlite`. Afin de pouvoir visualiser cette base de données, installer l'extension `SQLite` :
+
+![image](https://github.com/user-attachments/assets/1381b158-6b53-4d0f-ab02-a9cb4cca61bf)
+
+Puis tapez sur la touche F1 et rentrez `SQLite: Open Database` puis sélectionnez `database\database.sqlite`, cela rajoute un volet dépliant dans la colonne de gauche :
+
+![image](https://github.com/user-attachments/assets/30653a25-c903-48e6-bc23-f0227254224c)
+
+## 4. Création des entités en utilisant `artisan`
+
+Dans le terminal de votre conteneur et pour chacune de vos entités, utilisez la commande suivante en remplacant `Champion` par le nom voulu. Vous noterez que les noms d'entités commencent par des majuscules et sont au singulier.
+```bash
+php artisan make:model Champion -m
+```
+
+Décomposons cette commande :
+- `php` : car Laravel est un framework php
+- `artisan` : la brique de Laravel permettant de générer du code standard (models, controller, migration, vider le cache,...)
+- `make:model` : la commande permettant de générer un nouveau model. Crée un fichier dans `app/Models`
+- `Champion` : spécifie que l'entité doit s'appeler Champion. On aura donc un fichier `Champion.php` dans Models
+- `-m` : crée également un fichier de migration dans `databse/migrations`. Ce fichier de migration contiendra les noms des colonnes et les types de données de la table `champions`. A noter que le lien entre le model et la base de données est fait par cette commande.
+
+## 5. Mettre à jour les migrations
+
+Changez le contenu de la fonction `up` pour quelle crée toutes les colonnes de la table `champions` :
+
+```php
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('champions', function (Blueprint $table) { //crée la table champions
+            $table->id('champion_id'); // ajoute une colonne id intitulée champion_id
+            $table->string('champion_name'); // ajoute une colonne champion_name qui contiendra des chaînes de caractères
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('champions');
+    }
+};
+```
