@@ -88,3 +88,5 @@ return new class extends Migration
     }
 };
 ```
+
+Faites de même pour chaque migration d'entité.
