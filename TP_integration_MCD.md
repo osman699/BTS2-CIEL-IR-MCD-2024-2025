@@ -2,7 +2,9 @@
 
 C'est là qu'on commence à s'amuser.
 
-## 1. Mise en place de Laravel
+## A. Initialisation du projet
+
+### 1. Mise en place de Laravel
 
 Pour construire le site web, vous n'allez pas créer toute l'architecture vous même. On va utiliser un framework PHP du nom de Laravel.
 
@@ -20,7 +22,7 @@ A l'issu de cette commande, le conteneur sera lancé et vous pouvez l'utiliser.
 
 Aller à l'URL `localhost` et vous devriez avoir la page de présentation de Laravel.
 
-## 2. Import des assets
+### 2. Import des assets
 
 Dans votre dossier `BTS2-CIEL-IR-MCD-2024-2025/League_of_Branly` se trouve un ensemble de différent éléments de code. Récupérer les et placez les aux bons endroits dans votre dossier `D:/<votreNom.SNIR>/League_of_Branly`.
 
@@ -28,7 +30,7 @@ Après actualisation du site internet, vous devriez voir s'affichez le thème Le
 
 ![image](https://github.com/user-attachments/assets/e81b1369-840e-4960-a588-61a3c45e4e85)
 
-## 3. Visualisation de la base de données
+### 3. Visualisation de la base de données
 
 Ouvrez votre dossier `League of Branly` avec Visual Studio Code.
 
@@ -40,7 +42,9 @@ Puis tapez sur la touche F1 et rentrez `SQLite: Open Database` puis sélectionne
 
 ![image](https://github.com/user-attachments/assets/30653a25-c903-48e6-bc23-f0227254224c)
 
-## 4. Création des entités en utilisant `artisan`
+## B. Intégration du modèle Entités-Relations
+
+### 1. Création des entités en utilisant `artisan`
 
 Dans le terminal de votre conteneur et pour chacune de vos entités, utilisez la commande suivante en remplacant `Champion` par le nom voulu. Vous noterez que les noms d'entités commencent par des majuscules et sont au singulier.
 ```bash
@@ -54,7 +58,7 @@ Décomposons cette commande :
 - `Champion` : spécifie que l'entité doit s'appeler Champion. On aura donc un fichier `Champion.php` dans Models
 - `-m` : crée également un fichier de migration dans `databse/migrations`. Ce fichier de migration contiendra les noms des colonnes et les types de données de la table `champions`. A noter que le lien entre le model et la base de données est fait par cette commande.
 
-## 5. Mettre à jour les migrations
+### 2. Mettre à jour les migrations
 
 Changez le contenu de la fonction `up` pour quelle crée toutes les colonnes de la table `champions` :
 
@@ -90,3 +94,36 @@ return new class extends Migration
 ```
 
 Faites de même pour chaque migration d'entité.
+
+Si vous souhaitez qu'une élément d'une colonne puisse être null, vous pouvez appeler la fonction `nullable()` de cette façon :
+
+```php
+$table->string('champion_name')->nullable();
+```
+
+### 3. Démarrer la migration
+
+Lancez la commande `php artisan migrate` dans le temrinal du conteneur pour appeler les fihcier de migration et créer les tables.
+
+Vous pouvez vérifier dans l'inspecteur de sqlite la présence de vos tables.
+
+![image](https://github.com/user-attachments/assets/c543c4f2-9b3a-4275-913c-99450c032643)
+
+### 4. Définir les relations
+
+Modifiez les fichiers modèle des entités pour qu'ils incluent les relations. Voici un exemple avec la relation que nous avons vu dans le cours : "un champion possède plusieurs compétences".
+On modifie donc le modèle `Champion` pour y inclure cette relation.
+
+```php
+class Champion extends Model
+{
+    /**
+     * Il peut y avoir du code avant cette fonction
+     */
+
+    public function abilities()
+    {
+        return $this->hasMany(Ability::class, 'champion_id'); // ce lit : ce champion ($this) a plusieurs compétences (Ability) et pour la connexion entre les deux se fait via le champ `champion_id`
+    }
+}
+```
