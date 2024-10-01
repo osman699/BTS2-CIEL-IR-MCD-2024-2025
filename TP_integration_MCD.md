@@ -127,3 +127,5 @@ class Champion extends Model
     }
 }
 ```
+
+Parfois, vous aurez besoin de d'autres types de relation (one-to-one, one-to-many, has-one-of-many,...) vous pouvez utiliser ce guide : https://kinsta.com/fr/blog/relations-laravel-eloquent/
