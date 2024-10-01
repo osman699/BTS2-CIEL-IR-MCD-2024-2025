@@ -103,7 +103,7 @@ $table->string('champion_name')->nullable();
 
 ### 3. Démarrer la migration
 
-Lancez la commande `php artisan migrate` dans le temrinal du conteneur pour appeler les fihcier de migration et créer les tables.
+Lancez la commande `php artisan migrate` dans le terminal du conteneur pour appeler les fichier de migration et créer les tables.
 
 Vous pouvez vérifier dans l'inspecteur de sqlite la présence de vos tables.
 
