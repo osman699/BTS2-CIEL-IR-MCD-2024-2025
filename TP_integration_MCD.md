@@ -52,6 +52,8 @@ Configurez HEIDI avec les paramétres ci-dessous :
 
 ### 1. Création des migrations
 
+Le fonctionnement des migrations est expliqué [ici](./Migration.md)
+
 Ouvrez le terminal de votre conteneur dans Docker Desktop.
 
 **Tâche :** Créez les migrations pour toutes les tables nécessaires.
@@ -70,81 +72,105 @@ php artisan make:migration create_champion_region_table
 
 **Question :** Pourquoi créons-nous des tables séparées pour `champion_position` et `champion_region` ?
 
-Décomposons cette commande :
-- `php` : car Laravel est un framework php
-- `artisan` : la brique de Laravel permettant de générer du code standard (models, controller, migration, vider le cache,...)
-- `make:model` : la commande permettant de générer un nouveau model. Crée un fichier dans `app/Models`
-- `Champion` : spécifie que l'entité doit s'appeler Champion. On aura donc un fichier `Champion.php` dans Models
-- `-m` : crée également un fichier de migration dans `databse/migrations`. Ce fichier de migration contiendra les noms des colonnes et les types de données de la table `champions`. A noter que le lien entre le model et la base de données est fait par cette commande.
+### 2. Définition des structures des tables
 
-### 2. Mettre à jour les migrations
+Naviguez vers le dossier `database/migrations`.
 
-Changez le contenu de la fonction `up` pour quelle crée toutes les colonnes de la table `champions` :
+**Tâche :** Pour chaque fichier de migration créé, définissez la structure de la table correspondante en vous appuyant sur votre MCD étendu.
+
+Exemple pour la table `champions` :
 
 ```php
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-
-return new class extends Migration
+public function up()
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('champions', function (Blueprint $table) { //crée la table champions
-            $table->id('champion_id'); // ajoute une colonne id intitulée champion_id
-            $table->string('champion_name'); // ajoute une colonne champion_name qui contiendra des chaînes de caractères
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('champions');
-    }
-};
+    Schema::create('champions', function (Blueprint $table) {
+        $table->id();
+        $table->string('name', 50);
+        $table->string('title', 100);
+        $table->text('lore');
+        $table->integer('difficulty');
+        $table->integer('release_year');
+        $table->foreignId('gender_id')->constrained();
+        $table->foreignId('specie_id')->constrained();
+        $table->foreignId('resource_id')->constrained();
+        $table->foreignId('range_id')->constrained();
+        $table->timestamps();
+    });
+}
 ```
 
-Faites de même pour chaque migration d'entité.
+**Tâche :** Créez des structures similaires pour les autres tables, en adaptant les champs selon les besoins de chaque entité.
+**Question :** Quelles différences notez-vous entre la structure de la table champions et celle des autres tables ?
 
-Si vous souhaitez qu'une élément d'une colonne puisse être null, vous pouvez appeler la fonction `nullable()` de cette façon :
+### 3. Création des modèles
 
-```php
-$table->string('champion_name')->nullable();
+**Tâche :** Créez un modèle pour chaque table principale.
+
+```bash
+php artisan make:model Champion
+php artisan make:model Gender
+php artisan make:model Position
+php artisan make:model Specie
+php artisan make:model Resource
+php artisan make:model Range
+php artisan make:model Region
 ```
+### 4. Définition des relations dans les modèles
 
-### 3. Démarrer la migration
+Naviguez vers le dossier `app/Models`.
 
-Lancez la commande `php artisan migrate` dans le terminal du conteneur pour appeler les fichier de migration et créer les tables.
+**Tâche :** Pour chaque modèle, définissez les relations appropriées.
 
-Vous pouvez vérifier dans l'inspecteur de sqlite la présence de vos tables.
-
-![image](https://github.com/user-attachments/assets/c543c4f2-9b3a-4275-913c-99450c032643)
-
-### 4. Définir les relations
-
-Modifiez les fichiers modèle des entités pour qu'ils incluent les relations. Voici un exemple avec la relation que nous avons vu dans le cours : "un champion possède plusieurs compétences".
-On modifie donc le modèle `Champion` pour y inclure cette relation.
+Exemple pour le modèle `Champion` :
 
 ```php
 class Champion extends Model
 {
-    /**
-     * Il peut y avoir du code avant cette fonction
-     */
+    use HasFactory;
 
-    public function abilities()
+    protected $fillable = ['name', 'title', 'lore', 'difficulty', 'release_year'];
+
+    public function gender()
     {
-        return $this->hasMany(Ability::class, 'champion_id'); // ce lit : ce champion ($this) a plusieurs compétences (Ability) et pour la connexion entre les deux se fait via le champ `champion_id`
+        return $this->belongsTo(Gender::class);
+    }
+
+    public function positions()
+    {
+        return $this->belongsToMany(Position::class);
+    }
+
+    public function specie()
+    {
+        return $this->belongsTo(Specie::class);
+    }
+
+    public function resource()
+    {
+        return $this->belongsTo(Resource::class);
+    }
+
+    public function range()
+    {
+        return $this->belongsTo(Range::class);
+    }
+
+    public function regions()
+    {
+        return $this->belongsToMany(Region::class);
     }
 }
 ```
 
-Parfois, vous aurez besoin de d'autres types de relation (one-to-one, one-to-many, has-one-of-many,...) vous pouvez utiliser ce guide : https://kinsta.com/fr/blog/relations-laravel-eloquent/
+**Tâche :** Définissez les relations pour les autres modèles de manière similaire.
+**Question :** Pourquoi utilisons-nous `belongsToMany` pour certaines relations et `belongsTo` pour d'autres ?
+
+### 5. Exécution des migrations
+
+**Tâche :** Exécutez les migrations pour créer les tables dans la base de données.
+
+```bash
+php artisan migrate
+```
+
+**Question :** Que se passe-t-il si vous exécutez cette commande plusieurs fois ?
