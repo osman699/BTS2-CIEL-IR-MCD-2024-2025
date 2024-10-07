@@ -30,6 +30,13 @@ Après actualisation du site internet, vous devriez voir s'affichez le thème Le
 
 ![image](https://github.com/user-attachments/assets/e81b1369-840e-4960-a588-61a3c45e4e85)
 
+Si vous avez encore l'affichage de la page par défaut de Laravel, essayer les commandes suivantes dans le temrinal de votre conteneur :
+
+```bash
+php artisan cache:clear
+php artisan view:clear
+```
+
 ### 3. Visualisation de la base de données
 
 Ouvrez votre dossier `League of Branly` avec Visual Studio Code.
