@@ -91,5 +91,3 @@ SQL (Structured Query Language) est un langage standard pour la gestion et la ma
     ```sql
     SELECT nom FROM produits ORDER BY prix DESC LIMIT 5;
     ```
-
-Ces exemples couvrent une gamme de requêtes SQL courantes, de la simple sélection à des opérations plus complexes impliquant des jointures et des sous-requêtes.
