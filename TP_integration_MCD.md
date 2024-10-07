@@ -177,4 +177,4 @@ php artisan migrate
 
 **Question finale :** Comment pourriez-vous vérifier que votre structure de base de données a été correctement mise en place ?
 
-Après avoir répondu à ces questions, vous pouvez passer au (TP SQL)[./TP_SQL.md]
+Après avoir répondu à ces questions, vous pouvez passer au [TP SQL](./TP_SQL.md)
