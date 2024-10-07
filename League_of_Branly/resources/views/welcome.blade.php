@@ -14,17 +14,20 @@
         </div>
     </div>
 </div>
-<div class="welcome-block-2 bg-gold-1">
-    <div class="d-flex flex-column gx-5 container flex-lg-row">
-        <div class="text-blue-7 d-flex justify-content-center flex-column p-5">
-            <h2>1. Create a Database Conceptual Model</h2>
-            <p>Using the official League of Legends website and the Merise method, create a Conceptual Data Model (CDM) that represents the champions of Runeterra.</p>
-            <p>Define all the Data Entities (also known as Entity) that represent the information in our system, for example we need the Entity "Champion".</p>
-            <p>Then, define the Relationships between the Entities. Example: a Champion belongs to only one Region.</p>
-            <p>These Relationships and Entities will form your Database Conceptual Model.</p>
-        </div>
-        <div class="col-sm d-flex justify-content-center align-items-center pb-5">
-            <img class="img-fluid" id="cdm-diagram" src="{{ asset('img/league_of_legends_diagram_v2.png')}}" />
+<div class="bg-gold-1">
+    <div class="container">
+        <div class="d-flex flex-column vh-100 gx-5">
+            <div class="text-blue-7 d-flex justify-content-center flex-column p-5">
+                <h2>1. Create a Database Conceptual Model</h2>
+                <p>Using the official League of Legends website and the Merise method, create a Conceptual Data Model (CDM) that represents the champions of Runeterra.</p>
+                <p>Define all the Data Entities (also known as Entity) that represent the information in our system, for example we need the Entity "Champion".</p>
+                <p>Then, define the Relationships between the Entities. Example: a Champion belongs to only one Region.</p>
+                <p>These Relationships and Entities will form your Database Conceptual Model.</p>
+            </div>
+            <div class="col-sm d-flex justify-content-center align-items-center pb-5">
+                <img class="img-fluid" id="cdm-diagram" src="{{ asset('img/league_of_legends_diagram_v2.png')}}" />
+            </div>
+
         </div>
     </div>
 </div>
