@@ -174,3 +174,5 @@ php artisan migrate
 ```
 
 **Question :** Que se passe-t-il si vous exécutez cette commande plusieurs fois ?
+
+**Question finale :** Comment pourriez-vous vérifier que votre structure de base de données a été correctement mise en place ?
