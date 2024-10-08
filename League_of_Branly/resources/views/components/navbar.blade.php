@@ -11,19 +11,19 @@
                 </div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link h4 {{ request()->is('classic') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="{{ route('champions.classic') }}">CLASSIC</a>
+                        <a class="nav-link h4 {{ request()->is('classic') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">CLASSIC</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h4 {{ request()->is('regions') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">REGIONS</a>
+                        <a class="nav-link h4 {{ request()->is('regions') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">QUOTE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h4 {{ request()->is('roles') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">ROLES</a>
+                        <a class="nav-link h4 {{ request()->is('roles') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">ABILITY</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h4 {{ request()->is('abilities') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">ABILITIES</a>
+                        <a class="nav-link h4 {{ request()->is('abilities') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">EMOJI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h4 {{ request()->is('skins') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">SKINS</a>
+                        <a class="nav-link h4 {{ request()->is('skins') ? 'active' : '' }} link-underline-opacity-100-hover link-offset-3" href="">SPLASH</a>
                     </li>
                 </ul>
                 <div class="d-block d-lg-none">
