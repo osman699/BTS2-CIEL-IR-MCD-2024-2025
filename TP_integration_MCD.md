@@ -148,6 +148,7 @@ public function up()
 ```
 
 **Tâche :** Créez des structures similaires pour les autres tables, en adaptant les champs selon les besoins de chaque entité.
+
 **Question :** Quelles différences notez-vous entre la structure de la table champions et celle des autres tables ?
 
 ### 3. Création des modèles
