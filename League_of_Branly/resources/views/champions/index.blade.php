@@ -4,52 +4,71 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Champions List</h1>
+    <x-page-header title="Champions" :create-route="route('champions.create')" />
 
-    {{-- Check if there are any champions --}}
-    @if($champions->isEmpty())
-    <p>No champions available.</p>
-    @else
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Role</th>
-                <th>Region</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($champions as $champion)
-            <tr>
-                <td>{{ $champion->id }}</td>
-                <td>{{ $champion->name }}</td>
-                <td>{{ $champion->title }}</td>
-                <td>
-                    {{-- Assuming champion has a relationship with roles --}}
-                    @foreach($champion->roles as $role)
-                    {{ $role->role_name }}{{ !$loop->last ? ', ' : '' }}
-                    @endforeach
-                </td>
-                <td>{{ $champion->region->name ?? 'No region' }}</td>
-                <td>
-                    <a href="{{ route('champions.show', $champion->id) }}" class="btn btn-primary btn-sm">View</a>
-                    <a href="{{ route('champions.edit', $champion->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="{{ route('champions.destroy', $champion->id) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    @endif
 
-    {{-- Link to create a new champion --}}
-    <a href="{{ route('champions.create') }}" class="btn btn-success">Add New Champion</a>
+    <div id="tableView">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Resource Type</th>
+                    <th>Release Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($champions as $champion)
+                <tr>
+                    <td>{{ $champion->name }}</td>
+                    <td>{{ $champion->title }}</td>
+                    <td>{{ $champion->resource_type }}</td>
+                    <td>{{ $champion->release_date }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <div id="gridView" class="row row-cols-1 row-cols-md-3 g-4" style="display: none;">
+        @foreach($champions as $champion)
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $champion->name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $champion->title }}</h6>
+                    <p class="card-text">Resource: {{ $champion->resource_type }}</p>
+                    <p class="card-text">Released: {{ $champion->release_date }}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tableViewBtn = document.getElementById('tableViewBtn');
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const tableView = document.getElementById('tableView');
+        const gridView = document.getElementById('gridView');
+
+        tableViewBtn.addEventListener('click', function() {
+            tableView.style.display = 'block';
+            gridView.style.display = 'none';
+            tableViewBtn.classList.replace('btn-secondary', 'btn-primary');
+            gridViewBtn.classList.replace('btn-primary', 'btn-secondary');
+        });
+
+        gridViewBtn.addEventListener('click', function() {
+            tableView.style.display = 'none';
+            gridView.style.display = 'block';
+            gridViewBtn.classList.replace('btn-secondary', 'btn-primary');
+            tableViewBtn.classList.replace('btn-primary', 'btn-secondary');
+        });
+    });
+</script>
 @endsection

@@ -66,7 +66,7 @@
     }
 }
 </code></pre>
-        <p>You can find the complete list of Eloquent relationships in the <a href="https://www.diagrams.net/" target="_blank" rel="noopener noreferrer" class="dcm-link link-underline-opacity-100-hover">Laravel documentation</a>.</p>
+        <p>You can find the complete list of Eloquent relationships in the <a href="https://laravel.com/docs/11.x/eloquent-relationships" target="_blank" rel="noopener noreferrer" class="dcm-link link-underline-opacity-100-hover">Laravel documentation</a>.</p>
         <pre><code class="language-bash">php artisan migrate</code></pre>
     </div>
 </div>

@@ -2,35 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Regions</h1>
+    <x-page-header title="Regions" :create-route="route('regions.create')" />
 
-    <a href="{{ route('regions.create') }}" class="btn btn-primary mb-3">Create New Region</a>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($regions as $region)
-            <tr>
-                <td>{{ $region->name }}</td>
-                <td>{{ $region->description }}</td>
-                <td>
-                    <a href="{{ route('regions.edit', $region) }}" class="btn btn-sm btn-secondary">Edit</a>
-                    <form action="{{ route('regions.destroy', $region) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <x-table-grid-view
+        title="regions"
+        :items="$regions"
+        :columns="['name' => 'Name', 'description' => 'Description']"
+        route-prefix="regions" />
 </div>
 @endsection
 
@@ -79,6 +57,16 @@
         background-color: #c9302c;
         border-color: #c9302c;
         color: var(--gold-1);
+    }
+
+    .card {
+        background-color: var(--blue-7);
+        color: var(--gold-1);
+        border-color: var(--gold-5);
+    }
+
+    .card-body {
+        background-color: var(--blue-6);
     }
 </style>
 @endsection
