@@ -50,6 +50,54 @@ Configurez HEIDI avec les paramétres ci-dessous :
 
 ## B. Intégration du modèle Entités-Relations
 
+### 0. Le modèle Entités-Relations
+
+Afin de tous partir sur la même base, je vous propose d'implémenter ce MCD :
+
+```mermaid
+erDiagram
+    CHAMPION {
+        int id_champion PK
+        varchar(50) name
+        varchar(100) title
+        text lore
+        int difficulty
+        int releaseYear
+    }
+    GENDER {
+        int id_gender PK
+        varchar(20) name
+    }
+    POSITION {
+        int id_position PK
+        varchar(20) name
+    }
+    SPECIE {
+        int id_specie PK
+        varchar(50) name
+    }
+    RESOURCE {
+        int id_resource PK
+        varchar(30) name
+    }
+    RANGE {
+        int id_range PK
+        varchar(20) type
+    }
+    REGION {
+        int id_region PK
+        varchar(50) name
+        text lore
+    }
+
+    CHAMPION ||--o{ GENDER : "has"
+    CHAMPION }o--o{ POSITION : "can_play_as"
+    CHAMPION ||--o{ SPECIE : "belongs_to"
+    CHAMPION ||--o{ RESOURCE : "uses"
+    CHAMPION ||--o{ RANGE : "has"
+    CHAMPION ||--o{ REGION : "comes_from"
+```
+
 ### 1. Création des migrations
 
 Le fonctionnement des migrations est expliqué [ici](./Migration.md)
