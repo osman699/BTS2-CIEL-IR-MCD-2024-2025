@@ -57,7 +57,7 @@ Afin de tous partir sur la même base, je vous propose d'implémenter ce MCD :
 ```mermaid
 erDiagram
     CHAMPION {
-        int id_champion PK
+        int champion_id PK
         varchar(50) name
         varchar(100) title
         text lore
@@ -65,27 +65,27 @@ erDiagram
         int releaseYear
     }
     GENDER {
-        int id_gender PK
+        int gender_id PK
         varchar(20) name
     }
     POSITION {
-        int id_position PK
+        int position_id PK
         varchar(20) name
     }
     SPECIE {
-        int id_specie PK
+        int specie_id PK
         varchar(50) name
     }
     RESOURCE {
-        int id_resource PK
+        int resource_id PK
         varchar(30) name
     }
     RANGE {
-        int id_range PK
+        int range_id PK
         varchar(20) type
     }
     REGION {
-        int id_region PK
+        int region_id PK
         varchar(50) name
         text lore
     }
@@ -95,7 +95,7 @@ erDiagram
     CHAMPION ||--o{ SPECIE : "belongs_to"
     CHAMPION ||--o{ RESOURCE : "uses"
     CHAMPION ||--o{ RANGE : "has"
-    CHAMPION ||--o{ REGION : "comes_from"
+    CHAMPION }o--o{ REGION : "comes_from"
 ```
 
 ### 1. Création des migrations
