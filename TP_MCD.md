@@ -10,7 +10,6 @@ League of Legends est un jeu populaire avec de nombreux champions, chacun ayant 
 
 ### 1. Identification des entités principales
 - Quel est l'élément central du jeu League of Legends que nous cherchons à modéliser ?
-- Quelles sont les caractéristiques uniques qui définissent cet élément ?
 
 ### 2. Définition des attributs
 - Quels types d'informations sont nécessaires pour décrire complètement un champion ?
@@ -18,12 +17,10 @@ League of Legends est un jeu populaire avec de nombreux champions, chacun ayant 
 - Quels types de données seraient appropriés pour chaque attribut que vous avez identifié ?
 
 ### 3. Identification des entités secondaires
-- Outre les champions, quelles autres catégories d'informations sont importantes dans League of Legends ?
-- Y a-t-il des caractéristiques des champions qui pourraient être modélisées comme des entités séparées ? Pourquoi ?
+- Outre les champions, quelles autres catégories d'informations sont importantes dans League of Legends et pourront être modélisées sous forme d'entités ?
 
 ### 4. Définition des attributs pour les entités secondaires
 - Pour chaque entité secondaire que vous avez identifiée, quelles informations sont nécessaires pour la décrire ?
-- Comment structureriez-vous ces informations en attributs ?
 
 ### 5. Établissement des relations
 - Quelles sont les connexions logiques entre l'entité principale (champion) et les entités secondaires ?
