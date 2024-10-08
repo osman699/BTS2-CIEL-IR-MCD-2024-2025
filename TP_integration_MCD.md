@@ -212,6 +212,7 @@ class Champion extends Model
 ```
 
 **Tâche :** Définissez les relations pour les autres modèles de manière similaire.
+
 **Question :** Pourquoi utilisons-nous `belongsToMany` pour certaines relations et `belongsTo` pour d'autres ?
 
 ### 5. Exécution des migrations
