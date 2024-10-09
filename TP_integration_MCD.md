@@ -61,9 +61,6 @@ erDiagram
     CHAMPION {
         int id_champion PK
         varchar(50) name
-        varchar(100) title
-        text lore
-        int difficulty
     }
     GENDER {
         int id_gender PK
