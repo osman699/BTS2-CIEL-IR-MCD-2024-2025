@@ -132,6 +132,8 @@ Naviguez vers le dossier `database/migrations`.
 
 **Tâche :** Pour chaque fichier de migration créé, définissez la structure de la table correspondante en vous appuyant sur votre MCD étendu.
 
+Les relations `one-to-many` vont être matérialisées par des clés étrangères dans la table `champion`.
+
 Exemple pour la table `champions` :
 
 ```php
@@ -142,6 +144,21 @@ public function up()
         $table->string('name', 50);
         $table->foreignId('gender_id')->constrained();
         $table->foreignId('resource_id')->constrained();
+        $table->timestamps();
+    });
+}
+```
+
+Pour chaque relation `many-to-many`, on crée une table **pivot**. Par exemple :
+
+
+```php
+public function up()
+{
+    Schema::create('champion_position', function (Blueprint $table) {
+        $table->id('champion_position_id');
+        $table->foreignId('champion_id')->constrained();
+        $table->foreignId('position_id')->constrained();
         $table->timestamps();
     });
 }
