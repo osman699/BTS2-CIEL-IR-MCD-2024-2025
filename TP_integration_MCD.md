@@ -194,7 +194,7 @@ class Champion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'title', 'lore', 'difficulty', 'release_year'];
+    protected $fillable = ['name'];
 
     public function gender()
     {
@@ -206,9 +206,9 @@ class Champion extends Model
         return $this->belongsToMany(Position::class);
     }
 
-    public function specie()
+    public function species()
     {
-        return $this->belongsTo(Specie::class);
+        return $this->belongsToMany(Specie::class);
     }
 
     public function resource()
@@ -216,9 +216,9 @@ class Champion extends Model
         return $this->belongsTo(Resource::class);
     }
 
-    public function range()
+    public function ranges()
     {
-        return $this->belongsTo(Range::class);
+        return $this->belongsToMany(Range::class);
     }
 
     public function regions()
