@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center mb-3 justify-content-between">
     <div class="d-flex align-items-center">
-        <h1 class="mb-0">{{ $title }}</h1>
+        <h1 class="mb-0 heading">{{ $title }}</h1>
     </div>
     <div class="d-flex align-items-center">
         <button id="createChampionBtn" class="btn border rounded btn-theme m-1" onclick="window.location.href='{{ $createRoute }}'">
