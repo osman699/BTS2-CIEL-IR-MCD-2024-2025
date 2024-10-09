@@ -140,11 +140,8 @@ public function up()
     Schema::create('champions', function (Blueprint $table) {
         $table->id();
         $table->string('name', 50);
-        $table->integer('release_year');
         $table->foreignId('gender_id')->constrained();
-        $table->foreignId('specie_id')->constrained();
         $table->foreignId('resource_id')->constrained();
-        $table->foreignId('range_id')->constrained();
         $table->timestamps();
     });
 }
