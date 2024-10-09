@@ -48,7 +48,7 @@ Afin de pouvoir naviguer facilement dans votre BDD, installez le logiciel [Heidi
 
 Configurez HEIDI avec les paramétres ci-dessous :
 
-![image](https://github.com/user-attachments/assets/795e78bc-bc8d-4c06-97f5-bf15f2cceef0)
+![image](https://github.com/user-attachments/assets/8ed92a0b-d5f3-4b0c-911c-a7c14226035b)
 
 ## B. Intégration du modèle Entités-Relations
 
