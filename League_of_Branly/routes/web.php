@@ -8,13 +8,13 @@ use App\Http\Controllers\SkinController;
 use Illuminate\Support\Facades\Route;
 
 // Custom routes
-//Route::get('champions/classic', [ChampionController::class, 'classic'])->name('champions.classic');
+Route::get('champions/classic', [ChampionController::class, 'classic'])->name('champions.classic');
 // Resource routes
-/*Route::resource('abilities', AbilityController::class);
+Route::resource('abilities', AbilityController::class);
 Route::resource('champions', ChampionController::class);
 Route::resource('regions', RegionController::class);
 Route::resource('roles', RoleController::class);
-Route::resource('skins', SkinController::class);*/
+Route::resource('skins', SkinController::class);
 
 Route::get('/', function () {
     return view('welcome');
