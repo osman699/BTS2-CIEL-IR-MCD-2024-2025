@@ -133,9 +133,6 @@ public function up()
     Schema::create('champions', function (Blueprint $table) {
         $table->id();
         $table->string('name', 50);
-        $table->string('title', 100);
-        $table->text('lore');
-        $table->integer('difficulty');
         $table->integer('release_year');
         $table->foreignId('gender_id')->constrained();
         $table->foreignId('specie_id')->constrained();
